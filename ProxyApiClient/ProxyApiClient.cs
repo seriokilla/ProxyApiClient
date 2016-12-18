@@ -1,27 +1,35 @@
 ﻿using ApiClientBase;
+using Ninject;
+using Ninject.Extensions.Factory;
+using Ninject.Modules;
 using System;
 using System.Configuration;
 
 namespace ProxyApiClient
 {
-	static class Factory
+	public interface IApiClientFactory
 	{
-		/// <summary>
-		/// Decides which class to instantiate.
-		/// </summary>
-		public static IApiClient BuildClient(string clientType)
+		IApiClient BuildApiClient(string apiClientType);
+	}
+
+	public class ApiClientModule : NinjectModule
+	{
+		public override void Load()
 		{
-			switch (clientType)
-			{
-				case "RealApiClient":
-					return new RealApiClient.RealApiClient();
-				case "TestApiClient":
-					return new TestApiClient.TestApiClient();
-				default:
-					throw new Exception("Unknown IApiClient type");
-			}
+			Bind<IApiClientFactory>().ToFactory(() => new FirstArgumentAsNameInstanceProvider());
+			Bind<IApiClient>().To<RealApiClient.RealApiClient>().Named("RealApiClient");
+			Bind<IApiClient>().To<TestApiClient.TestApiClient>().Named("TestApiClient");
 		}
 	}
+	
+	public class FirstArgumentAsNameInstanceProvider : StandardInstanceProvider
+	{
+		protected override string GetName(System.Reflection.MethodInfo methodInfo, object[] arguments)
+		{
+			return (string)arguments[0];
+		}
+	}
+
 	public class ProxyApiClient
     {
 		private IApiClient _ApiClient;
@@ -32,7 +40,11 @@ namespace ProxyApiClient
 				if (_ApiClient == null)
 				{
 					var clientType = GetAppConfigValue("ApiClientType");
-					_ApiClient = Factory.BuildClient(clientType);
+					using (var kernel = new StandardKernel(new ApiClientModule()))
+					{
+						var factory = kernel.Get<IApiClientFactory>();
+						_ApiClient = factory.BuildApiClient(clientType);
+					}
 				}
 
 				return _ApiClient;
