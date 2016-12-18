@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ProxyApiClientTests
 {
 	[TestClass]
-	public class ProxyTests
+	public class ProxyIntegrationTests
 	{
 		[TestMethod]
 		public void TestMethod1()

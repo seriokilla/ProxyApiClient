@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BCEDCED4-DF02-47F4-834C-EB246444DC1B}</ProjectGuid>
+    <ProjectGuid>{0BB21C19-D2D5-407C-9800-817D78F18416}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProxyApiClientTests</RootNamespace>
-    <AssemblyName>ProxyApiClientTests</AssemblyName>
+    <RootNamespace>ProxyApiClientUnitTests</RootNamespace>
+    <AssemblyName>ProxyApiClientUnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,17 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ProxyIntegrationTests.cs" />
+    <Compile Include="ProxyUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProxyApiClient\ProxyApiClient.csproj">
-      <Project>{412f66a5-0bfc-4a08-8291-667621e07d11}</Project>
-      <Name>ProxyApiClient</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
