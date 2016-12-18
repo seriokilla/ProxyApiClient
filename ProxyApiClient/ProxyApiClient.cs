@@ -1,32 +1,21 @@
 ﻿using ApiClientBase;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
 
 namespace ProxyApiClient
 {
-	public enum ClientType
-	{
-		Unknown,
-		RealApiClient,
-		TestApiClient
-	};
-
 	static class Factory
 	{
 		/// <summary>
 		/// Decides which class to instantiate.
 		/// </summary>
-		public static IApiClient BuildClient(ClientType clientType)
+		public static IApiClient BuildClient(string clientType)
 		{
 			switch (clientType)
 			{
-				case ClientType.RealApiClient:
+				case "RealApiClient":
 					return new RealApiClient.RealApiClient();
-				case ClientType.TestApiClient:
+				case "TestApiClient":
 					return new TestApiClient.TestApiClient();
 				default:
 					throw new Exception("Unknown IApiClient type");
@@ -42,7 +31,7 @@ namespace ProxyApiClient
 			{
 				if (_ApiClient == null)
 				{
-					var clientType = ReadClientTypeSetting();
+					var clientType = GetAppConfigValue("ApiClientType");
 					_ApiClient = Factory.BuildClient(clientType);
 				}
 
@@ -54,18 +43,15 @@ namespace ProxyApiClient
 			}
 		}
 
-		private static ClientType ReadClientTypeSetting()
+		private string GetAppConfigValue(string key)
 		{
 			try
 			{
-				var appSettings = ConfigurationManager.AppSettings;
-				var clientTypeStr = appSettings["ApiClientType"];
-				var clientType = (ClientType)Enum.Parse(typeof(ClientType), clientTypeStr);
-				return clientType;
+				return ConfigurationManager.AppSettings[key];
 			}
 			catch (ConfigurationErrorsException)
 			{
-				Console.WriteLine("Error reading app settings");
+				Console.WriteLine("Error reading app settings key: " + key);
 				throw;
 			}
 		}
