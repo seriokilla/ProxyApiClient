@@ -54,11 +54,11 @@
       <Project>{30918639-4841-42da-92dd-26b5b65238a9}</Project>
       <Name>ApiClientBase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ApiClient\RealApiClient.csproj">
+    <ProjectReference Include="..\RealApiClient\RealApiClient.csproj">
       <Project>{e134208b-6ddc-46a0-982d-9ade54d52293}</Project>
       <Name>RealApiClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ApiTestClient\TestApiClient.csproj">
+    <ProjectReference Include="..\TestApiClient\TestApiClient.csproj">
       <Project>{5c49a9df-9f22-4d47-a7f7-c7e59287e970}</Project>
       <Name>TestApiClient</Name>
     </ProjectReference>
