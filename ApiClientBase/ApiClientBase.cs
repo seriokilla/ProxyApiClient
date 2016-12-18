@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProxyApiClient
+namespace ApiClientBase
 {
-    public class Class1
+    public interface IApiClient
     {
-    }
+		void Execute01();
+		void Execute02();
+		void Execute03();
+	}
 }
