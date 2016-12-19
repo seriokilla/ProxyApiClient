@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace RealApiClient
 {
-	public class RealApiClient : IApiClient
+	public class ApiClientReal : IApiClient
 	{
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		private string GetCurrentMethod()
