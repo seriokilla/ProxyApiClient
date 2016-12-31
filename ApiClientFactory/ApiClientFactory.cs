@@ -1,5 +1,6 @@
 ﻿using ApiClientBase;
 using System;
+using System.Diagnostics;
 
 namespace ApiClientFactory
 {
@@ -10,9 +11,9 @@ namespace ApiClientFactory
 			switch (apiClientType)
 			{
 				case "TestApiClient":
-					return new TestApiClient.ApiClientTest();
+					return new TestApiClient.ApiClientTest(() => Debug.WriteLine(string.Format("TestApiClient::{0}", Helper.GetCurrentMethod())));
 				case "RealApiClient":
-					return new RealApiClient.ApiClientReal();
+					return new RealApiClient.ApiClientReal(() => Debug.WriteLine(string.Format("ApiClientReal::{0}", Helper.GetCurrentMethod())));
 				default:
 					throw new Exception("Unknown ApiClientType: " + apiClientType);
 			}

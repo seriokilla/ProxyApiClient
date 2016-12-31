@@ -1,4 +1,5 @@
 ﻿using ApiClientBase;
+using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
@@ -6,27 +7,27 @@ namespace RealApiClient
 {
 	public class ApiClientReal : IApiClient
 	{
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		private string GetCurrentMethod()
+		private Action LogLine;
+		public ApiClientReal(Action logLine)
 		{
-			StackTrace st = new StackTrace();
-			StackFrame sf = st.GetFrame(1);
-
-			return sf.GetMethod().Name;
+			LogLine = logLine;
 		}
-		public void Execute01()
+		public void Execute01(int i = 0)
 		{
-			Debug.WriteLine(string.Format("RealApiClient::{0}", GetCurrentMethod()));
+			if (i == 1)
+				return;
+			else
+				LogLine();
 		}
 
 		public void Execute02()
 		{
-			Debug.WriteLine(string.Format("RealApiClient::{0}", GetCurrentMethod()));
+			LogLine();
 		}
 
 		public void Execute03()
 		{
-			Debug.WriteLine(string.Format("RealApiClient::{0}", GetCurrentMethod()));
+			LogLine();
 		}
 	}
 }

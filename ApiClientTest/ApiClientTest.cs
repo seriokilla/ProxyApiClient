@@ -1,4 +1,5 @@
 ﻿using ApiClientBase;
+using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
@@ -6,27 +7,25 @@ namespace TestApiClient
 {
 	public class ApiClientTest : IApiClient
 	{
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		private string GetCurrentMethod()
-		{
-			StackTrace st = new StackTrace();
-			StackFrame sf = st.GetFrame(1);
+		private Action LogLine;
 
-			return sf.GetMethod().Name;
-		}
-		public void Execute01()
+		public ApiClientTest(Action logLine)
 		{
-			Debug.WriteLine(string.Format("TestApiClient::{0}", GetCurrentMethod()));
+			LogLine = logLine;
+		}
+		public void Execute01(int i=0)
+		{
+			LogLine();
 		}
 
 		public void Execute02()
 		{
-			Debug.WriteLine(string.Format("TestApiClient::{0}", GetCurrentMethod()));
+			LogLine();
 		}
 
 		public void Execute03()
 		{
-			Debug.WriteLine(string.Format("TestApiClient::{0}", GetCurrentMethod()));
+			LogLine();
 		}
 	}
 }
