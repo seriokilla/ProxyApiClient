@@ -13,7 +13,7 @@ namespace ApiClientFactory
 				case "TestApiClient":
 					return new TestApiClient.ApiClientTest(() => Debug.WriteLine(string.Format("TestApiClient::{0}", Helper.GetCurrentMethod())));
 				case "RealApiClient":
-					return new RealApiClient.ApiClientReal(() => Debug.WriteLine(string.Format("ApiClientReal::{0}", Helper.GetCurrentMethod())));
+					return new RealApiClient.ApiClientReal(() => Debug.WriteLine(string.Format("RealApiClient::{0}", Helper.GetCurrentMethod())));
 				default:
 					throw new Exception("Unknown ApiClientType: " + apiClientType);
 			}
