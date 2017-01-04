@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyApiClient", "ProxyApiClient\ProxyApiClient.csproj", "{412F66A5-0BFC-4A08-8291-667621E07D11}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClientBase", "ApiClientBase\ApiClientBase.csproj", "{30918639-4841-42DA-92DD-26B5B65238A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealApiClient", "RealApiClient\RealApiClient.csproj", "{E134208B-6DDC-46A0-982D-9ADE54D52293}"
@@ -13,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApiClient", "TestApiCli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyApiClientIntTests", "ProxyApiClientIntTests\ProxyApiClientIntTests.csproj", "{BCEDCED4-DF02-47F4-834C-EB246444DC1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyApiClientUnitTests", "ProxyApiClientUnitTests\ProxyApiClientUnitTests.csproj", "{0BB21C19-D2D5-407C-9800-817D78F18416}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F0C47CAD-4445-4B34-943E-D9E41AD713ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiClients", "ApiClients", "{2A7E472D-531A-49A2-92DB-3041FD82104C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClientFactory", "ApiClientFactory\ApiClientFactory.csproj", "{412F66A5-0BFC-4A08-8291-667621E07D11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{412F66A5-0BFC-4A08-8291-667621E07D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{412F66A5-0BFC-4A08-8291-667621E07D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{412F66A5-0BFC-4A08-8291-667621E07D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{412F66A5-0BFC-4A08-8291-667621E07D11}.Release|Any CPU.Build.0 = Release|Any CPU
 		{30918639-4841-42DA-92DD-26B5B65238A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{30918639-4841-42DA-92DD-26B5B65238A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30918639-4841-42DA-92DD-26B5B65238A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,10 +39,10 @@ Global
 		{BCEDCED4-DF02-47F4-834C-EB246444DC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCEDCED4-DF02-47F4-834C-EB246444DC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCEDCED4-DF02-47F4-834C-EB246444DC1B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BB21C19-D2D5-407C-9800-817D78F18416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BB21C19-D2D5-407C-9800-817D78F18416}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BB21C19-D2D5-407C-9800-817D78F18416}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BB21C19-D2D5-407C-9800-817D78F18416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412F66A5-0BFC-4A08-8291-667621E07D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412F66A5-0BFC-4A08-8291-667621E07D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412F66A5-0BFC-4A08-8291-667621E07D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412F66A5-0BFC-4A08-8291-667621E07D11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +52,6 @@ Global
 		{E134208B-6DDC-46A0-982D-9ADE54D52293} = {2A7E472D-531A-49A2-92DB-3041FD82104C}
 		{5C49A9DF-9F22-4D47-A7F7-C7E59287E970} = {2A7E472D-531A-49A2-92DB-3041FD82104C}
 		{BCEDCED4-DF02-47F4-834C-EB246444DC1B} = {F0C47CAD-4445-4B34-943E-D9E41AD713ED}
-		{0BB21C19-D2D5-407C-9800-817D78F18416} = {F0C47CAD-4445-4B34-943E-D9E41AD713ED}
+		{412F66A5-0BFC-4A08-8291-667621E07D11} = {2A7E472D-531A-49A2-92DB-3041FD82104C}
 	EndGlobalSection
 EndGlobal

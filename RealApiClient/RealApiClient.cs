@@ -1,4 +1,5 @@
 ﻿using ApiClientBase;
+using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
@@ -14,19 +15,25 @@ namespace RealApiClient
 
 			return sf.GetMethod().Name;
 		}
-		public void Execute01()
+		public ResponseData Execute01()
 		{
-			Debug.WriteLine(string.Format("RealApiClient::{0}", GetCurrentMethod()));
-		}
+            var msg = string.Format("RealApiClient::{0}", GetCurrentMethod());
+            Debug.WriteLine(msg);
+            return new ResponseData { Id = 1, Date = DateTime.Now, Message = msg };
+        }
 
-		public void Execute02()
+		public ResponseData Execute02()
 		{
-			Debug.WriteLine(string.Format("RealApiClient::{0}", GetCurrentMethod()));
-		}
+            var msg = string.Format("RealApiClient::{0}", GetCurrentMethod());
+            Debug.WriteLine(msg);
+            return new ResponseData { Id = 2, Date = DateTime.Now, Message = msg };
+        }
 
-		public void Execute03()
+		public ResponseData Execute03()
 		{
-			Debug.WriteLine(string.Format("RealApiClient::{0}", GetCurrentMethod()));
-		}
+            var msg = string.Format("RealApiClient::{0}", GetCurrentMethod());
+            Debug.WriteLine(msg);
+            return new ResponseData { Id = 3, Date = DateTime.Now, Message = msg };
+        }
 	}
 }

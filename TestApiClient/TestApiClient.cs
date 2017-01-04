@@ -1,15 +1,11 @@
 ﻿using ApiClientBase;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestApiClient
 {
-	public class TestApiClient : IApiClient
+    public class TestApiClient : IApiClient
 	{
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		private string GetCurrentMethod()
@@ -19,19 +15,25 @@ namespace TestApiClient
 
 			return sf.GetMethod().Name;
 		}
-		public void Execute01()
+		public ResponseData Execute01()
 		{
-			Debug.WriteLine(string.Format("TestApiClient::{0}", GetCurrentMethod()));
-		}
+            var msg = string.Format("TestApiClient::{0}", GetCurrentMethod());
+            Debug.WriteLine(msg);
+            return new ResponseData { Id = 1, Date = DateTime.Now, Message = msg };
+        }
 
-		public void Execute02()
+		public ResponseData Execute02()
 		{
-			Debug.WriteLine(string.Format("TestApiClient::{0}", GetCurrentMethod()));
-		}
+            var msg = string.Format("TestApiClient::{0}", GetCurrentMethod());
+            Debug.WriteLine(msg);
+            return new ResponseData { Id = 2, Date = DateTime.Now, Message = msg };
+        }
 
-		public void Execute03()
+		public ResponseData Execute03()
 		{
-			Debug.WriteLine(string.Format("TestApiClient::{0}", GetCurrentMethod()));
-		}
+            var msg = string.Format("TestApiClient::{0}", GetCurrentMethod());
+            Debug.WriteLine(msg);
+            return new ResponseData { Id = 3, Date = DateTime.Now, Message = msg };
+        }
 	}
 }

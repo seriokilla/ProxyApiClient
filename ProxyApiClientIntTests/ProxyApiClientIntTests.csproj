@@ -54,9 +54,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProxyApiClient\ProxyApiClient.csproj">
+    <ProjectReference Include="..\ApiClientBase\ApiClientBase.csproj">
+      <Project>{30918639-4841-42DA-92DD-26B5B65238A9}</Project>
+      <Name>ApiClientBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ApiClientFactory\ApiClientFactory.csproj">
       <Project>{412f66a5-0bfc-4a08-8291-667621e07d11}</Project>
-      <Name>ProxyApiClient</Name>
+      <Name>ApiClientFactory</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

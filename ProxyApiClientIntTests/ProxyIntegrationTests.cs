@@ -8,10 +8,12 @@ namespace ProxyApiClientTests
 		[TestMethod]
 		public void TestMethod1()
 		{
-			var p = new ProxyApiClient.ProxyApiClient();
-			p.CallMethod01();
-			p.CallMethod02();
-			p.CallMethod03();
-		}
+            var client = ApiClientFactory.Factory.GetApiClient();
+
+            client.Execute01();
+            client.Execute02();
+            client.Execute03();
+
+        }
 	}
 }
