@@ -33,7 +33,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>ApiClientFactory.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>ApiClientFactory.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -65,7 +65,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ApiClientFactory.pfx" />
+    <None Include="ApiClientFactory.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
